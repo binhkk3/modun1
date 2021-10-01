@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game đuổi hình bắt chữ</title>
+</head>
+<h1>ĐUỔI HÌNH KHÔNG BẮT CHỮ</h1>
+<style>
+    .img {
+        margin: 250px;
+    }
+
+    .img {
+        width: 250px;
+        height: 250px;
+    }
+</style>
+<body>
+<input style="width: 300px;height: 30px " type="text" id="nhan">
+<button style="font-size: 50px ; color: blueviolet; background-color: orchid" onclick="check()">check</button>
+<button onclick="doi_anh()"  id="bo"> bo qua</button>
+<button onclick="xem_goi_y()">gơi ý</button>
+<h2 id="din"></h2>
+<button onclick="Question"> sta</button>
+<div id="time" style="height: 80px; font-size: 50px">đồng hồ</div>
+<div id="ra"></div>
+<div class="imgs">
+
+
+    <img id="img" onclick="doi_anh()" src="anh_nen.jpg" alt=""></div>
+<script>
+    let index = 0;
+    let img = ["a1.jpg", "a2.jpg", "a3.jpg"];
+    let tra_loi = ["chấm công", "cá heo", "đồng cảm"]
+    let goi_y = ["8 chữ có chữ (công)", "một loại cá ở dưới biển", "có từ (cảm)"]
+    let diem = 0;
+class game{
+    constructor() {
+        let traloi = document.getElementById("nhan").value;
+        let anh = document.getElementById('img');
+        let srcanh = anh.src.split('/');
+        console.log(anh.src)
+        let src = srcanh[srcanh.length - 1];
+        let index = img.indexOf(src);
+        if (traloi == tra_loi[index]) {
+            alert('đã đúng');
+            diem += 5
+            anh.src = img[index + 1];
+            document.getElementById("din").innerHTML = "điểm của bạn là" + diem;
+        } else {
+            alert('bạn đã sai');
+            diem--;
+            document.getElementById("din").innerHTML = "điểm của bạn là" + diem;
+        }
+        if (index == 2) {
+            document.write("<h1>bạn đã thắng " + "điểm của bạn là " + diem + "</h1>")
+        }
+    }
+
+    constructor() {
+    } xem_goi_y() {
+        let anh = document.getElementById("img");
+        let srcanh = anh.src.split('/');
+        let src = srcanh[srcanh.length - 1];
+        let index = img.indexOf(src);
+        console.log(index)
+        document.getElementById("ra").innerHTML = goi_y[index]
+    }
+}
+
+    class Question {
+        id;
+        image;
+        answer;
+        time;
+        hint;
+        constructor(id, image, answer, time, hint) {
+            this.id = id;
+            this.image = image;
+            this.answer = answer;
+            this.time = time;
+            this.hint = hint
+        }
+        showImage() {
+
+        }
+        showTime() {
+
+        }
+        showHint() {
+
+        }
+        showAnswer() {
+
+        }
+        getChart() {
+
+        }
+
+    }
+</script>
+</body>
+</html>
